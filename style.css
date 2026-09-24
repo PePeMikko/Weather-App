@@ -25,23 +25,23 @@ body {
         margin-bottom: 20px;
     }
 
-    .city {
+    .city, .weather {
         font-size: 18px;
         font-weight: 500;
-        width: 360px;
         border: none;
+    }
+
+    .city {
+        width: 360px;
         margin-left: 60px;
         outline: none;
     }
 
     .weather {
         color: white;
-        font-size: 18px;
-        font-weight: 500;
         width: 140px;
         height: 40px;
         border-radius: 5px;
-        border: none;
         margin-right: 60px;
         background-color: #007bff;
         transition: background-color 0.3s ease;
@@ -50,3 +50,20 @@ body {
             background-color: #0062cc;
             cursor: pointer;
         }
+
+@media (max-width: 768px){ 
+    .cart {
+        height: 220px;
+        text-align: center;
+    }
+
+    .city {
+        width: 600px;
+        margin-left: 0px;
+    }
+
+    .weather {
+        margin-top: 20px;
+        margin-right: 0px;
+    }
+}
