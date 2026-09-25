@@ -29,7 +29,7 @@ document.querySelector('.js-weather')
                 <div class="desc2">Humidity: ${weather.main.humidity}%</div>
                 <div class="desc2">Wind Speed: ${weather.wind.speed} m/s</div>
             `
-            document.querySelector('.js-three').innerHTML = weatherHTML;
+            document.querySelector('.js-four').innerHTML = weatherHTML;
         });
             xhr.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=${apikey}&units=metric`);
             xhr.send();

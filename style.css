@@ -1,69 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Montserrat, Arial;
+    font-family: Montserrat, Arial, sans-serif;
     margin: 0;
-    margin-top: 50px;
+    min-height: 100vh;
 
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     background-color: #f7f7f7;
 }
 
 .cart {
     width: 640px;
-    height: 190px;
+    min-height: 300px;
+    height: auto;
+    padding-bottom: 30px;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
 }
 
     .title {
+        margin: 40px 0 20px;
         font-size: 32px;
         font-weight: bold;
         text-align: center;
-        margin-top: 40px;
-        margin-bottom: 20px;
     }
 
     .city, .weather {
+        border: none;
         font-size: 18px;
         font-weight: 500;
-        border: none;
     }
 
     .city {
         width: 360px;
+        height: 40px;
         margin-left: 60px;
+        padding: 0 10px;
         outline: none;
     }
 
     .weather {
-        color: white;
         width: 140px;
         height: 40px;
-        border-radius: 5px;
         margin-right: 60px;
+        border-radius: 5px;
+        color: white;
         background-color: #007bff;
-        transition: background-color 0.3s ease;
+        cursor: pointer;
     }
-        .weather:hover {
-            background-color: #0062cc;
-            cursor: pointer;
+
+    .weather:hover {
+        background-color: #0062cc;
+    }
+
+        .js-four {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+            padding: 0 30px;
         }
 
-@media (max-width: 768px){ 
+            .temp, .desc {
+                grid-column: 1 / -1;
+                text-align: center;
+            }
+
+            .temp {
+                margin-top: 5px;
+                font-size: 32px;
+                font-weight: bold;
+            }
+
+            .desc {
+                margin: -5px 0 15px;
+                color: #555;
+            }
+
+            .desc2 {
+                padding: 15px 8px;
+                background-color: #f1f1f1;
+                color: #555;
+                font-size: 14px;
+                text-align: center;
+            }
+
+@media (max-width: 768px) {
     .cart {
-        height: 220px;
-        text-align: center;
+        width: 90%;
+        min-height: 500px;
     }
 
     .city {
-        width: 600px;
-        margin-left: 0px;
+        width: 60%;
+        margin-left: 5%;
     }
 
     .weather {
-        margin-top: 20px;
-        margin-right: 0px;
+        width: 28%;
+        margin-right: 5%;
+    }
+
+    .js-four {
+        gap: 10px;
+        padding: 0 20px;
+    }
+
+    .desc2 {
+        font-size: 12px;
     }
 }
