@@ -22,13 +22,21 @@ document.querySelector('.js-weather')
             weather = JSON.parse(xhr.response);
             console.log(xhr.response);
 
-            weatherHTML += /* html */ `
-                <div class="temp">${Math.floor(weather.main.temp)}°C</div>
-                <div class="desc">${weather.weather[0].main}</div>
-                <div class="desc2">Feels like: ${Math.floor(weather.main.feels_like)}</div>
-                <div class="desc2">Humidity: ${weather.main.humidity}%</div>
-                <div class="desc2">Wind Speed: ${weather.wind.speed} m/s</div>
-            `
+            if (xhr.status === 404) {
+                weatherHTML = /* html */ `
+                    <div class="desc"">City is not found! Check the spelling of the name.</div>
+                `;
+            }
+            else {
+                weatherHTML += /* html */ `
+                    <div class="temp">${Math.floor(weather.main.temp)}°C</div>
+                    <div class="desc">${weather.weather[0].main}</div>
+                    <div class="desc2">Feels like: ${Math.floor(weather.main.feels_like)}</div>
+                    <div class="desc2">Humidity: ${weather.main.humidity}%</div>
+                    <div class="desc2">Wind Speed: ${weather.wind.speed} m/s</div>
+                `
+            }
+
             document.querySelector('.js-four').innerHTML = weatherHTML;
         });
             xhr.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=${apikey}&units=metric`);
